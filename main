@@ -1,0 +1,19 @@
+limit = 1000
+twinprimes_count = 0
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+x = 2
+while x < limit:
+    if is_prime(x) and is_prime(x + 2):
+        print(x, x + 2)
+        twinprimes_count += 1
+    x += 1
+
+print("Total pairs of twin numbers found below", limit, "is", twinprimes_count)
